@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Carlito&display=swap');
+.bgaddprop{
+  background: url(../assets/bg-forms.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    position: absolute;
+    /* height: 100%; */
+    width: 100%;
+    z-index: -1;
+}
+.signup {
+  width: 500px;
+  margin-left: 100px;
+  margin-right: 100px;
+  padding: 50px 0 0;
+  margin: auto;
+  font-family: 'Carlito', sans-serif;
+}
+/* .login1{
+  width: 360px;
+  padding: 8% 0 0;
+  margin: auto;
+  font-family: 'Carlito', sans-serif;
+} */
+
+.form {
+  /* position: relative;
+  z-index: 1; */
+  background: #ffffff;
+  border-radius: 10px;
+  /* max-width: 360px; */
+  margin: 0 auto 100px;
+  padding-top: 30px;
+  padding-left: 45px;
+  padding-right: 45px;
+  padding-bottom: 45px;
+  text-align: center;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  opacity: 01;
+}
+/* .form1{
+  position: relative;
+  z-index: 1;
+  background: #0e2f53;
+  border-radius: 10px;
+  max-width: 360px;
+  margin: 0 auto 100px;
+  padding: 45px;
+  text-align: center;
+  color: white;
+} */
+/* 
+#img{
+  width: 80%;
+} */
+
+.form input {
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  border-radius: 5px;
+  margin: 0 0 15px;
+  padding: 12px 15px 12px 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+  font-family: 'Carlito', sans-serif;
+}
+
+.form input:focus {
+  background: #dbdbdb;
+}
+
+.form button {
+  font-family: 'Carlito', sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #24314f;
+  width: 100%;
+  border: 0;
+  border-radius: 5px;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.form button:active {
+  background: radial-gradient(circle, rgba(37,124,208,1) 0%, rgba(101,104,190,1) 0%, rgba(40,65,93,1) 100%);
+}
+
+
+#head{
+  font-size: 40px;
+  font-weight: bold;
+  color: #24314f;
+  /* margin-bottom: 25px; */
+  display: block;
+}
+#cap{
+  font-size: 15px;
+  font-weight: bold;
+  color: #444955;
+  margin-bottom: 25px;
+  display: block;
+}
+
+#help{
+  color: #444955;
+  float: right;
+  text-decoration: none;
+  padding-right: 10px;
+}
+
+#help:hover{
+  text-decoration: underline;
+}
+
+#cb{
+  margin-bottom: 0px;
+  float: left;
+}
+
+#signin{
+  color: #444955;
+  text-decoration: none;
+  font-size: 13px;
+}
+#signin:hover{
+  text-decoration: underline;
+}
+
+div{
+  font-size: 13px;
+}
+
+#fck{
+  margin-top: 20px;
+}
+
+.form p.error {
+  margin: 0 0 10px 10px;
+  text-align: left;
+  font-size: 12px;
+  color: rgb(135, 16, 16);
+}
+
+/* .col-6{
+  width: 461px;
+} */

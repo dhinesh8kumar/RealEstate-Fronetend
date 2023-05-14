@@ -1,0 +1,289 @@
+import "../../styles/Asignup.css";
+import { Formik } from "formik";
+import * as Yup from "yup";
+import Navbar from "../../components/Navbar";
+import {Link} from "react-router-dom";
+
+
+function Asignup() {
+
+  const URL = /^((https?|ftp):\/\/)?(www.)?(((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:)*@)?(((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5]))|((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?)(:\d*)?)(\/((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)+(\/(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*)?)?(\?((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|[\uE000-\uF8FF]|\/|\?)*)?(\#((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|\/|\?)*)?$/i
+  const schema = Yup.object().shape({
+    fullname: Yup.string().required("Please Enter your Full Name"),
+
+    email: Yup.string().required("Email is required").email("Invalid email"),
+
+    mob: Yup.string()
+      .required("Enter your Phone number")
+      .min(10, "Enter a Valid Phone number")
+      .max(11,"Enter a Valid Phone number"),
+      
+    password: Yup.string()
+      .required("Password is required")
+      .min(8, "password length must be 8"),
+    confirmPassword: Yup.string()
+      .required("Confirm Your Password")
+      .oneOf([Yup.ref("password"), null], "Passwords must match"),
+
+    address: Yup.string().required("Address is required"),
+
+    passport: Yup.string()
+      .required("Passport number is required")
+      .min(12, "Invalid Passport number")
+      .max(12, "Invalid Passport number"),
+
+    pfile: Yup.string().required("Please upload your Passport"),
+
+    lfile: Yup.string().required("Please upload your certificate"),
+
+    profile:Yup.string().matches(URL, 'Enter your profile picture URL').required("Enter your profile picture URL")
+  });
+  const exceptThisSymbols = ["e", "E", "-", "."];
+  return (
+    <>
+      <Navbar />
+      <div className="container">
+        <Formik
+          validationSchema={schema}
+          initialValues={{
+            fullname: "",
+            email: "",
+            mob: "",
+            password: "",
+            confirmPassword: "",
+            address: "",
+            passport: "",
+            pfile: "",
+            lfile: "",
+            profile:"",
+          }}
+          onSubmit={(values) => {
+            // Alert the input values of the form that we filled
+            alert(JSON.stringify(values));
+            //to reload the page after clicking on ok in the alert
+            window.location.reload();
+          }}
+        >
+          {({
+            values,
+            errors,
+            touched,
+            handleChange,
+            handleBlur,
+            handleSubmit,
+          }) => (
+            <div className="bga" style={{left:"0px", padding:"50px"}}>
+            <div className="signup">
+              <div className="form">
+                {/* Passing handleSubmit parameter tohtml form onSubmit property */}
+                <form noValidate onSubmit={handleSubmit}>
+                  <div id="head"> Sign Up</div>
+                  <div id="cap">Philippines Real Estate - Attorney</div>
+                  {/* Our input html with passing formik parameters like handleChange, values, handleBlur to input properties */}
+                  <input
+                    type="text"
+                    name="fullname"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.fullname}
+                    placeholder="Full Name "
+                    className="form-control inp_text"
+                    id="fullname"
+                  />
+                  {/* If validation is not passed show errors */}
+                  <p className="error">
+                    {errors.fullname && touched.fullname && errors.fullname}
+                  </p>
+                  <input
+                    type="email"
+                    name="email"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.email}
+                    placeholder="Email "
+                    className="form-control inp_text"
+                    id="email"
+                  />
+                  {/* If validation is not passed show errors */}
+                  <p className="error">
+                    {errors.email && touched.email && errors.email}
+                  </p>
+
+                  <input
+                    type="number"
+                    onKeyDown={(e) =>
+                      exceptThisSymbols.includes(e.key) && e.preventDefault()
+                    }
+                    name="mob"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.mob}
+                    placeholder="Contact Number "
+                    className="form-control inp_text"
+                    id="mob"
+                  />
+                  {/* If validation is not passed show errors */}
+                  <p className="error">
+                    {errors.mob && touched.mob && errors.mob}
+                  </p>
+
+                  {/* Our input html with passing formik parameters like handleChange, values, handleBlur to input properties */}
+                  <div className="form-row">
+                    <div className="col">
+                      <input
+                        type="password"
+                        name="password"
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        value={values.password}
+                        placeholder="Password"
+                        className="form-control"
+                      />
+                      {/* If validation is not passed show errors */}
+                      <p className="error">
+                        {errors.password && touched.password && errors.password}
+                      </p>
+                    </div>
+                    <div className="col">
+                      <input
+                        type="password"
+                        name="confirmPassword"
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        //value={values.confirmPassword}
+                        placeholder="Confirm Passowrd"
+                        className="form-control"
+                      />
+                      {/* If validation is not passed show errors */}
+                      <p className="error">
+                        {errors.confirmPassword &&
+                          touched.confirmPassword &&
+                          errors.confirmPassword}
+                      </p>
+                    </div>
+                  </div>
+
+                  <input
+                    type="text"
+                    name="address"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.address}
+                    placeholder="Address"
+                    className="form-control"
+                  />
+                  {/* If validation is not passed show errors */}
+                  <p className="error">
+                    {errors.address && touched.address && errors.address}
+                  </p>
+
+                  <input
+                    type="text"
+                    name="passport"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.passport}
+                    style={{
+                      marginBottom: "10px",
+                      padding: "10px 15px 10px 15px",
+                    }}
+                    placeholder="Passport Number "
+                    className="form-control inp_text"
+                    id="passport"
+                  />
+                  {/* If validation is not passed show errors */}
+                  <p className="error">
+                    {errors.passport && touched.passport && errors.passport}
+                  </p>
+
+                  <div className="pass">Passport</div>
+                  <input
+                    type="file"
+                    name="pfile"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.pfile}
+                    style={{
+                      marginBottom: "8px",
+                      padding: "10px 15px 10px 15px",
+                    }}
+                    // placeholder="Contact Number "
+                    // placeholder="Passport"
+                    //className="form-control inp_text "
+                    className="file_edit"
+                    id="pfile"
+                  />
+
+                  {/* If validation is not passed show errors */}
+                  <p className="error">
+                    {errors.pfile && touched.pfile && errors.pfile}
+                  </p>
+
+                  <div className="pass">Attorney Certificate</div>
+                  <input
+                    type="file"
+                    name="lfile"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.lfile}
+                    //className="form-control inp_text "
+                    className="file_edit"
+                    id="lfile"
+                  />
+
+                  {/* If validation is not passed show errors */}
+                  <p className="error">
+                    {errors.lfile && touched.lfile && errors.lfile}
+                  </p>
+
+                  <input
+                    type="text"
+                    name="profile"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.profile}
+                    placeholder="Profile URL "
+                    className="form-control inp_text"
+                    id="fullname"
+                  />
+                  {/* If validation is not passed show errors */}
+                  <p className="error">
+                    {errors.profile && touched.profile && errors.profile}
+                  </p>
+
+                  {/* <div className="row">
+                  <div className="col-1 checkbx ">
+                    <input id="cb" type="checkbox" required />
+                  </div>
+                  <div className="col-11 checktxt">
+                    <p>I, agree to the terms and conditions.</p>
+                  </div>
+                </div> */}
+
+                  {/* <span>Agree to the terms & conditions</span> */}
+
+                  {/* If validation is not passed show errors */}
+                  {/* Click on submit button to submit the form */}
+                  <button type="submit">Sign Up</button>
+                  <div>
+                    <a href="contactus" id="help">
+                      Need help?
+                    </a>
+                  </div>
+                </form>
+                <br></br>{" "}
+                <div className="fck">
+                  Already have the account?{" "}
+                  <Link to="/LogIn" id="alogin">Sign In</Link>
+                </div>
+              </div>
+            </div>
+            </div>
+          )}
+        </Formik>
+      </div>
+    </>
+  );
+}
+
+export default Asignup;

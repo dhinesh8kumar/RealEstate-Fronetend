@@ -1,0 +1,87 @@
+.girl-img img {
+    width: 120%;
+    /* overflow: visible; */
+  }
+  .blob img {
+    z-index: -100;
+    position: absolute;
+    top: -70px;
+    /* overflow: visible; */
+    width: 65%;
+    right: -102px;
+  }
+  .description {
+    width: 18.5rem;
+    margin-left: 8rem;
+    margin-top: 6rem;
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+  .cta {
+    margin-left: 8rem;
+    margin-top: 6rem;
+    text-decoration: none !important;
+    padding: 10px 15px;
+    background-color: #ffffff;
+    color: #000000;
+    border-radius: 5px;
+    font-weight: 500;
+    font-size: 17px;
+    border: 1px solid black;
+    font-weight: bold;
+  }
+  .cta:hover {
+    opacity: 0.8;
+    color: white;
+    font-weight: bold;
+    background-color: #000000;
+  }
+  a:hover {
+    color: #ffffff !important;
+  }
+  .hero {
+    margin-top: 100px;
+    margin-left: 50px;
+  }
+  .product {
+    padding: 30px 8%;
+  }
+  .product img {
+    width: 100%;
+    border-radius: 10px;
+    height: 200px;
+  }
+  .head {
+    text-align: center;
+    margin-top: 50px;
+    color: #5c5b5b;
+  }
+  .product h5 {
+    padding-top: 10px;
+    text-align: center;
+  }
+  #testimonial {
+    padding: 50px 8%;
+  }
+  #testimonial img {
+    border-radius: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100px;
+  }
+  .rect1 {
+    
+    padding: 20px 20px;
+    background-color: #f7f7f7;
+    border-radius: 10px;
+    
+    
+  }
+  .rect1 p {
+    margin-top: 20px;
+    color: #5c5b5b;
+  }
+  .name p {
+    text-align: center;
+  }

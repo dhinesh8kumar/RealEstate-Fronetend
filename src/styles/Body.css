@@ -1,0 +1,127 @@
+.body{
+  margin-top: 80px;
+}
+.res-container{
+    margin: 5px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 40px;
+}
+
+.res-center {
+    margin: 5% 8%;
+}
+.search-container {
+    
+    text-align: center;
+    max-width: 100%;
+    
+  }
+  
+  .search-container .search-input {
+    width: 400px;
+    box-sizing: border-box;
+    border-radius: 7px;
+    background-color: #ffffff;
+    box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.08);
+    padding: 14px 15px 14px 20px;
+    border: 1px solid #aabcca;
+    border-right: 0;
+    color: #000000;
+    outline: none; margin-right: 10px;
+  }
+  
+  .search-container .search-btn {
+   border-radius: 7px;
+    background-color: rgb(255, 255, 255);
+    /* box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.08); */
+    color: #000000;
+    font-weight: bold;
+    padding: 13px 21px;
+    margin-left: -4px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+  }
+
+  .search-container .search-btn:hover {
+    background-color: #000000;
+    color: #ffffff;
+    border-radius: 1px solid black;
+  }
+
+.filter-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem 0;
+    padding: 1rem;
+    background-color: #ffffff;
+    border-radius: 0.5rem;
+  }
+  
+  .price-filter select {
+    margin-left: 1rem;
+    padding: 1rem;
+  }
+  
+  .type-filter label {
+    margin-left: 1rem;
+    margin-top: 10px;
+    margin-right: 30px;
+  }
+  
+  .type-filter input[type="checkbox"] {
+    margin-right: 0.5rem;
+  }
+  
+  /* .filter-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 1rem 0;
+    padding: 1rem;
+    background-color: #f2f2f2;
+    border-radius: 0.5rem;
+  }
+  
+  .search-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .search-input {
+    flex-grow: 1;
+    margin-right: 1rem;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    border: none;
+  }
+  
+  .search-btn {
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .filter-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+  }
+  
+  .price-filter select {
+    margin-left: 1rem;
+    padding: 0.5rem;
+  }
+  
+  .type-filter label {
+    margin-left: 1rem;
+  }
+  
+  .type-filter input[type="checkbox"] {
+    margin-right: 0.5rem;
+  } */

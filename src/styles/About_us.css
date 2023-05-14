@@ -1,0 +1,50 @@
+.container{
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  margin-top: 150px;
+  background-color:rgb(190, 192, 207);
+  padding: 20px 20px;
+  border-radius: 10px;
+  box-shadow: 3px 4px 300px -41px rgb(71, 105, 152);
+}
+.itemabt img{
+  height: 250px;
+  float:left;
+  width: 250px;
+  margin-left: 30px;
+  border-bottom-left-radius: 8px;
+  border-top-left-radius: 8px;
+  border-radius: 8px;
+}
+.infoabt{
+  float: auto;
+}
+
+.bgabt{
+  background: url(../assets/bg-forms.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    position: absolute;
+    /* height: 100%; */
+    width: 100%;
+    z-index: -1;
+    bottom: 0px;
+    top: 0px;
+}
+
+#contact{
+  text-align: center;
+  margin-top: 25px;
+}
+button{
+  background-color:rgb(20, 55, 97);
+  color: azure;
+  border-radius: 8px;
+  border: none;
+  margin-bottom: 30px;
+}
+button:active{
+  background: radial-gradient(circle, rgba(37,124,208,1) 0%, rgba(101,104,190,1) 0%, rgba(40,65,93,1) 100%);
+}
