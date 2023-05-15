@@ -2,7 +2,7 @@ import "../../styles/Bsignup.css";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import { useState } from "react";
-import Navbar from "../../components/Newnavbar"
+import Navbar from "../../components/Navbar"
 import {Link} from "react-router-dom";
 import axios from "axios";
 
@@ -239,39 +239,7 @@ function Bsignup() {
                 <p className="error">
                   {errors.file && touched.file && errors.file}
                 </p>
-                <div className="form-row">
-                <div className="col">
-                  <p> Are you a former Phillipines Citizen?</p>
-                </div>
-                <div className="col">
-                <div>
-      <label>
-        
-        <input type="radio" name="option" value="yes" onChange={handleOptionChange} />
-        Yes
-      </label>
-      <label>
-        <input type="radio" name="option" value="no" onChange={handleOptionChange} />
-        No
-      </label>
-      {uploadFile && (
-        <div>
-          <br></br>
-          <label>
-            <p>Upload former Phillipines Citizenship proof</p>
-            <input type="file" name="pfile" onChange={handleChange}
-                  onBlur={handleBlur} value={values.pfile} id="pfile" className="form-control "/>
-          </label>
-        </div>
-        
-      )}
-      <p className="error">
-                  {errors.pfile && touched.pfile && errors.pfile}
-                </p>
-    
-      </div>
-      </div>
-      </div>
+                
 
                
 

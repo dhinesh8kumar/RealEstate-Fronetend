@@ -34,7 +34,9 @@ export default function NewNavbar(){
         <li className="nav-item">
         <Link to="/Payment" className="nav-link"><li>Payment</li></Link>
         </li>
-        
+        <li className="nav-item">
+        <Link to="/Complaint" className="nav-link"><li>Complaint</li></Link>
+        </li>
         <li className="nav-item dropdown">
           <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             More
@@ -42,7 +44,7 @@ export default function NewNavbar(){
           <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
             <Link to="/About" className="dropdown-item"><li>About Us</li></Link>
             <Link to="/T&C" className="dropdown-item"><li>Terms & Conditions</li></Link>
-            <Link to="/Complaint" className="dropdown-item"><li>Complaint</li></Link>
+            
             
             
           </ul>

@@ -4,7 +4,7 @@ import * as Yup from "yup";
 //import {Link} from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
-
+import Sidebar from "../components/Ssidebar";
 
 
 const purpose = [
@@ -13,6 +13,7 @@ const purpose = [
   { label: 'CD Units', value: 'cdunits' },
 ];
 export default function Addprop(){
+  
   const navigate = useNavigate();
   if(!localStorage.getItem('Name')){
     navigate('/');
@@ -70,6 +71,7 @@ export default function Addprop(){
 
   return (
     <>
+    <Sidebar/>
     <Formik
     validationSchema={schema}
     initialValues={{ 
