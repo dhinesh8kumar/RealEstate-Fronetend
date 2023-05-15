@@ -45,11 +45,10 @@ function Complaint(){
        descrp:""
      }}
      onSubmit={(values) => {
-       alert(values);
-       console.log(values);
       axios.post("http://localhost:9091/complaint",{values}).then(()=>{
         console.log("success");
         window.location.reload(false);
+        alert("Your data sent successfully for the review.");
         });
      }}>
 

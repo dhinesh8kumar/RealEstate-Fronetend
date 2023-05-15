@@ -84,6 +84,9 @@ function Bsignup() {
             values
         }).then(()=>{
             console.log("success");
+            window.location.reload(false);
+            alert("Your data sent successfully for the review.");
+
         });
           
         }}

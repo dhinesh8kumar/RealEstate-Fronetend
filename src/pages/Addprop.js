@@ -3,6 +3,9 @@ import { Formik, Field } from "formik";
 import * as Yup from "yup";
 //import {Link} from "react-router-dom";
 
+import axios from 'axios';
+
+
 
 const purpose = [
   { label: 'Sell', value: 'sell' },
@@ -10,6 +13,8 @@ const purpose = [
   { label: 'CD Units', value: 'cdunits' },
 ];
 export default function Addprop(){
+
+  const URL = /^((https?|ftp):\/\/)?(www.)?(((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:)*@)?(((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5]))|((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?)(:\d*)?)(\/((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)+(\/(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*)?)?(\?((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|[\uE000-\uF8FF]|\/|\?)*)?(\#((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|\/|\?)*)?$/i
 
   
   const schema = Yup.object().shape({
@@ -25,6 +30,14 @@ export default function Addprop(){
     ownername: Yup.string()
       .required("Please enter your Name"),
 
+    mob: Yup.string()
+      .required("Enter your Phone number")
+      .min(10, "Enter a Valid Phone number")
+      .max(11, "Enter a Valid Phone number"),
+
+    sellerid: Yup.string()
+      .required("Enter your ID"),
+
     address: Yup.string()
       .required("Address is required"),
 
@@ -39,15 +52,15 @@ export default function Addprop(){
 
     purpose:Yup.string()
     .required("Please select purpose"),
-    
-    pimage: Yup.string()
-      .required("Please upload image of the Property"),
+
+    image:Yup.string().matches(URL, 'Enter your profile picture URL').required("Enter your profile picture URL"),
 
     pdoc: Yup.string()
     .required("Property document is required")
   
   });
 
+  const exceptThisSymbols = ["e", "E", "-", "."];
 
   return (
     <>
@@ -57,18 +70,22 @@ export default function Addprop(){
       propname: "", 
       reg: "", 
       ownername: "", 
+      mob:"",
+      sellerid:"",
       address: "", 
       value:"",
       area:"",
       desc:"",
       purpose:"",
-      pimage:"",
+      image:"",
       pdoc:""
     }}
     onSubmit={(values) => {
-      // Alert the input values of the form that we filled
-      alert(JSON.stringify(values));
-      window.location.reload();
+      axios.post("http://localhost:9091/AddProperty",{values}).then(()=>{
+            console.log("success");
+            window.location.reload(false);
+            alert("Your data sent successfully for the review.");
+            });
     }}
     >
 
@@ -133,6 +150,40 @@ export default function Addprop(){
                 <p className="error">
                   {errors.ownername && touched.ownername && errors.ownername}
                 </p>
+                <input
+                  type="number"
+                  onKeyDown={(e) =>
+                    exceptThisSymbols.includes(e.key) && e.preventDefault()
+                  }
+                  name="mob"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={values.mob}
+                  placeholder="Contact Number "
+                  className="form-control inp_text"
+                  id="mob"
+                />
+                {/* If validation is not passed show errors */}
+                <p className="error">
+                  {errors.mob && touched.mob && errors.mob}
+                </p>
+
+                <input
+                  type="text"
+                  name="sellerid"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={values.sellerid}
+                  // disabled={true}
+                  placeholder="Seller ID "
+                  className="form-control inp_text"
+                  id="id"
+                />
+                {/* If validation is not passed show errors */}
+                <p className="error">
+                  {errors.sellerid && touched.sellerid && errors.sellerid}
+                </p>
+
 
                 <input
                   type="text"
@@ -221,21 +272,21 @@ export default function Addprop(){
           ))}
         </Field>
 <br></br>
-                <label style={{float:"left", marginLeft:"15px",fontSize:"15px"}}>Property Images</label>
-                <input
-                  type="file"
-                  name="pimage"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  value={values.pimage}
-                  // placeholder="Contact Number "
-                  className="form-control inp_text"
-                  id="pimage"
-                />
-                {/* If validation is not passed show errors */}
-                <p className="error">
-                  {errors.pimage && touched.pimage && errors.pimage}
-                </p>
+
+                  <input
+                    type="text"
+                    name="image"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.image}
+                    placeholder="Property Image URL "
+                    className="form-control inp_text"
+                    id="fullname"
+                  />
+                  {/* If validation is not passed show errors */}
+                  <p className="error">
+                    {errors.image && touched.image && errors.image}
+                  </p>
 
                 <label style={{float:"left", marginLeft:"15px"}}>Property Document</label>
                 <input
