@@ -44,7 +44,6 @@ function Asignup() {
   return (
     <>
       <Navbar />
-      <div className="container">
         <Formik
           validationSchema={schema}
           initialValues={{
@@ -256,7 +255,6 @@ function Asignup() {
             </div>
           )}
         </Formik>
-      </div>
     </>
   );
 }
