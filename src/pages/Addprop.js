@@ -13,7 +13,8 @@ const purpose = [
   { label: 'CD Units', value: 'cdunits' },
 ];
 export default function Addprop(){
-  
+  const x = localStorage.getItem("data");
+  const name= localStorage.getItem("Name");
   const navigate = useNavigate();
   if(!localStorage.getItem('Name')){
     navigate('/');
@@ -77,9 +78,9 @@ export default function Addprop(){
     initialValues={{ 
       propname: "", 
       reg: "", 
-      ownername: "", 
+      ownername: name, 
       mob:"",
-      sellerid:"",
+      sellerid:x,
       address: "", 
       value:"",
       area:"",
@@ -186,6 +187,7 @@ export default function Addprop(){
                   placeholder="Seller ID "
                   className="form-control inp_text"
                   id="id"
+                  disabled={true}
                 />
                 {/* If validation is not passed show errors */}
                 <p className="error">

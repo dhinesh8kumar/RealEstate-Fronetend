@@ -119,7 +119,7 @@ export default function BDashboard(){
       const Accept = () => {
         axios.put(`http://localhost:9091/paccept`, {
           verify:1,
-          id: item.payment_id
+          id: item.id
         })
         .then(response => {
           console.log(response.data);
@@ -134,7 +134,7 @@ export default function BDashboard(){
       const Reject = () => {
         axios.put(`http://localhost:9091/paccept`, {
           verify:0,
-          id: item.payment_id
+          id: item.id
         })
         .then(response => {
           console.log(response.data);

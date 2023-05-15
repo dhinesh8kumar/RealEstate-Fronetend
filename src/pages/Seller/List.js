@@ -98,7 +98,7 @@ return (
 
         <td>{item.property_doc}</td>
 
-        
+         
 
        <td>{statusText}</td>
 
