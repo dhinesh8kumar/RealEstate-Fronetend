@@ -24,15 +24,19 @@ const RestaurantCard = (props) => {
         <h5>
           <b> {props.title} </b>
         </h5>
-        
+
         <p><b>Location:</b> {props.location} </p>
-        <p><b>Price :</b> {props.price}</p>
+        <p><b>Price :$</b> {props.price}</p>
         <p><b>Type :</b>{props.type}</p>
-        
+        <p><b>Area:</b>{props.area} Sqft</p>
       </div>
       {expanded && (
         <div className="expanded-details">
-          <p></p>
+          <p><b>Property-id:</b>{props.property_id}</p>
+
+          <p><b>Seller-id:</b>{props.seller_id}</p>
+
+          <p><b>Descrption:</b> {props.description}</p>
         </div>
       )}
     </div>

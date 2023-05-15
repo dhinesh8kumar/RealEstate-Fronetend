@@ -15,6 +15,13 @@ import { useNavigate } from 'react-router-dom';
 
 
 export default function Payment(){
+    const navigatex = useNavigate();
+  if(!localStorage.getItem('Name')){
+    navigatex('/');
+  }
+  if(localStorage.getItem('authToken')!= "buyer") {
+    navigatex('/SDashboard/List');
+  }
     const navigate = useNavigate();
     let id = localStorage.getItem("data");
     const x = localStorage.getItem("Name");

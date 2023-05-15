@@ -3,7 +3,7 @@ import '../../styles/Body.css'
 import RestaurantCard from "../../components/Card"
 import NewNavbar from '../../components/Newnavbar';
 import Footer from "../../components/Footer";
-
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 
@@ -12,6 +12,13 @@ import axios from 'axios';
 
 
 const Body = () => {
+  const navigate = useNavigate();
+  if(!localStorage.getItem('Name')){
+    navigate('/');
+  }
+  else if(localStorage.getItem('authToken')!= "buyer") {
+    navigate('/SDashboard/List');
+  }
   const [data, setData] = useState([]);
   const [propertyList, setPropertyList] = useState(data);
   const [searchText, setSearchText] = useState("");
@@ -20,9 +27,9 @@ const Body = () => {
 
   const loadProperty = async () => {
     const response = await axios.get("http://localhost:9091/api/property");
-    
-    
-    setData(response.data); 
+
+
+    setData(response.data);
     console.log(propertyList);
   };
 
@@ -30,13 +37,13 @@ const Body = () => {
     loadProperty();
   }, []);
 
-  
+
   const handlePriceFilterChange = (e) => {
     setPriceFilter(e.target.value);
   };
 
   const handleTypeFilterChange = (e) => {
-       const value = e.target.value;
+    const value = e.target.value;
     if (typeFilters.includes(value)) {
       setTypeFilters((prev) => prev.filter((v) => v !== value));
     } else {
@@ -85,84 +92,7 @@ const Body = () => {
     }
     setPropertyList(filtered);
   }, [data, searchText, priceFilter, typeFilters]);
-// const Body = () => {
 
-//   const [data, setData] = useState([]);
-//     const loadProperty = async () => {
-//       const response = await axios.get("http://localhost:9091/api/property");
-      
-      
-//       setPropertyList(response.data); 
-//       console.log(propertyList);
-//     };
-  
-//     useEffect(() => {
-//       loadProperty();
-//     }, []);
-//   const [propertyList, setPropertyList] = useState([]);
-//   const [searchText, setSearchText] = useState("");
-//   const [priceFilter, setPriceFilter] = useState("");
-//   const [typeFilters, setTypeFilters] = useState([]);
-
-//   const loadProperty = async () => {
-//     const response = await axios.get("http://localhost:9091/api/property");
-//     setPropertyList(response.data); 
-//   };
-
-//   useEffect(() => {
-//     loadProperty();
-//   }, []);
-
-//   useEffect(() => {
-//     let filtered = [...propertyList];
-//     if (searchText) {
-//       filtered = filtered.filter(
-//         (p) =>
-//           p.address.includes(searchText) || p.title.includes(searchText)
-//       );
-//     }
-//     if (priceFilter) {
-//       switch (priceFilter) {
-//         case "5-10":
-//           filtered = filtered.filter((p) => p.price >= 5000 && p.price <= 10000);
-//           break;
-//         case "10-20":
-//           filtered = filtered.filter((p) => p.price > 10000 && p.price <= 20000);
-//           break;
-//         case "20-30":
-//           filtered = filtered.filter((p) => p.price > 20000 && p.price <= 30000);
-//           break;
-//         case "30-50":
-//           filtered = filtered.filter((p) => p.price > 30000 && p.price <= 50000);
-//           break;
-//         case "50-100":
-//           filtered = filtered.filter((p) => p.price > 50000 && p.price <= 100000);
-//           break;
-//         case ">100":
-//           filtered = filtered.filter((p) => p.price > 100000);
-//           break;
-//         default:
-//           break;
-//       }
-//     }
-//     if (typeFilters.length) {
-//       filtered = filtered.filter((p) => typeFilters.includes(p.purpose.toLowerCase()));
-//     }
-//     setPropertyList(filtered);
-//   }, [propertyList, searchText, priceFilter, typeFilters]);
-
-//   const handlePriceFilterChange = (e) => {
-//     setPriceFilter(e.target.value);
-//   };
-
-//   const handleTypeFilterChange = (e) => {
-//     const value = e.target.value;
-//     if (typeFilters.includes(value)) {
-//       setTypeFilters((prev) => prev.filter((v) => v !== value));
-//     } else {
-//       setTypeFilters((prev) => [...prev, value]);
-//     }
-//   };
 
   return (
     <>
@@ -232,11 +162,16 @@ const Body = () => {
               <RestaurantCard
                 src={p.Property_Image}
                 title={p.Property_Name}
-                
+                area = {p.Area_Size}
                 location={p.Address}
                 price={p.Price}
                 type={p.purpose}
-                
+                seller_id={p.Seller_id}
+
+                description={p.Descrp}
+
+                property_id={p.id}
+
 
               />
             ))}

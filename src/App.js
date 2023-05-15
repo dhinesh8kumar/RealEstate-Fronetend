@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import Payment from "./pages/payment"
 import "bootstrap/dist/css/bootstrap.min.css";
-import Admin from "./pages/Buyer/BDashboard"
+
 import Landing from "./pages/landing"
 import Bsignup from "./pages/Buyer/Bsignup"
 import Navbar from "./components/Navbar"
@@ -27,6 +27,7 @@ import Proverify from './pages/Admin/Proverify'
 import Averify from './pages/Admin/averify'
 import Pverify from './pages/Admin/pverify'
 import Cverify from './pages/Admin/cverify'
+import List from './pages/Seller/List';
 function App() {
   return (
     
@@ -41,7 +42,7 @@ function App() {
         <Route path= "/Admin/Payment" element={<Pverify/>}/>
         <Route path= "/Admin/Complaints" element={<Cverify/>}/>
  
-        <Route path="/Dashboard" element={<Admin/>}/>
+        <Route path="/Dashboard" element={<BDashboard/>}/>
         <Route path="/Bsign" element={<Bsignup/>}/>
         <Route path="/Payment" element={<Payment/>}/>
         <Route path="/Asign" element={<Asignup/>}/>
@@ -49,12 +50,13 @@ function App() {
         <Route path="/LogIn" element={<Login/>}/>
         <Route path="/Properties" element={<Properties/>}/>
         <Route path="/Attorney" element={<Attorney/>}/>
-        <Route path='/Addproperty' element={<Addprop/>}/>
+        <Route path='/SDashboard/Addproperty' element={<Addprop/>}/>
+        <Route path='/SDashboard/List' element={<List/>}/>
         <Route path='/Properties' element={<Card/>}/>
         <Route path='/Complaint' element={<Complaint/>}/>
         <Route path='/About' element={<About/>}/>
         <Route path='/TandC' element={<Tandc/>}/>
-        <Route path='/SDashboard' element={<SDashboard/>}/>
+        <Route path='/SDashboard/Transactions' element={<SDashboard/>}/>
         <Route path="/Transaction" element={<Transaction/>}/>
         <Route path="/BDashboard" element={<BDashboard/>}/>
         <Route path="/Sverify" element={<Sverify/>}/>

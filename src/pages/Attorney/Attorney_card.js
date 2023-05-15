@@ -5,10 +5,16 @@ import Navbar from "../../components/Newnavbar"
 import Footer from "../../components/Footer";
 import { useEffect } from "react";
 import axios from 'axios';
-
+import { useNavigate } from "react-router-dom";
 
 export default function Card() {
-  
+  const navigate = useNavigate();
+  if(!localStorage.getItem('Name')){
+    navigate('/');
+  }
+  else if(localStorage.getItem('authToken')!= "buyer") {
+    navigate('/SDashboard/List');
+  }
   const [data,setData] = useState([]);
   const loadProperty = async () => {
     const response = await axios.get("http://localhost:9091/api/attorney");

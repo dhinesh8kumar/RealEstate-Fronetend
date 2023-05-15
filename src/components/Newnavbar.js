@@ -26,7 +26,7 @@ export default function NewNavbar(){
           <Link to="/Properties" className="nav-link">Home</Link>
         </li>
         <li className="nav-item">
-          <Link to="/dashboard" className="nav-link">Dashboard</Link>
+          <Link to="/Dashboard" className="nav-link">Dashboard</Link>
         </li>
         <li className="nav-item">
           <Link to="/Attorney" className="nav-link">Attorney</Link>

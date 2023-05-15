@@ -4,6 +4,7 @@ import {Link, useNavigate} from "react-router-dom";
 
 
 export default function Sidebar(){
+  const x= localStorage.getItem("Name");
   const navigate = useNavigate();
   const logout= ()=>{
     localStorage.removeItem("data");
@@ -21,21 +22,21 @@ export default function Sidebar(){
           
           <li>
 
-            <Link to="/Properties">
+            <Link to="/SDashboard/List">
             <i class='bx bx-book-bookmark'></i>
               <span className="links_name">Properties</span>
             </Link>
 
             </li>
             <li>
-            <Link to="/Addproperty">
+            <Link to="/SDashboard/Addproperty">
             <i class='bx bx-buildings'></i>
               <span className="links_name">Add Property</span>
             
             </Link>
             </li>
             <li>
-            <Link to="/Addproperty">
+            <Link to="/SDashboard/Transactions">
             <i class='bx bxs-bank'></i>
               <span className="links_name">Transactions</span>
             
@@ -48,7 +49,7 @@ export default function Sidebar(){
              <div className="profile-details">
               
                <div className="name_job">
-                 <div className="name">Seller</div>
+                 <div className="name">{x}</div>
                  <div className="job">RealEtsy </div>
                </div>
              </div>

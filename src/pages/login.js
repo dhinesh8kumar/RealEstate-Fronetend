@@ -28,6 +28,11 @@ function Login() {
 
   // creating schema
   const navigate = useNavigate();
+  if(localStorage.getItem("authToken")==='buyer'){
+    navigate('/Properties')
+  }else if(localStorage.getItem("authToken")==='seller'){
+    navigate('/SDashboard/List')
+  }
   const schema = Yup.object().shape({
     email: Yup.string()
       .required("Email is a required field")
@@ -44,7 +49,7 @@ function Login() {
     navigate('/Properties')
   }
   else if( x ==='seller'){
-    navigate('/SDashboard')
+    navigate('/SDashboard/List')
   }
 
 
@@ -79,9 +84,11 @@ function Login() {
               }
               else if (values.type === "seller") {
                 if(response.data.verify===1){
-                  navigate('/SDashboard');
-                localStorage.setItem("data", response.data.id);
+                  localStorage.setItem("data", response.data.id);
                 localStorage.setItem("authToken", values.type);
+                localStorage.setItem("Name", response.data.Name)
+                  navigate('/SDashboard/List');
+                
                 }else if(response.data.verify===-1){
                   alert("Your verification is still in process. Try Logging in Later")
                 }else if(response.data.verify === 0){

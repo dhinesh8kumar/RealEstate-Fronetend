@@ -3,8 +3,15 @@ import SSidebar from "../../components/Ssidebar"
 import "../../styles/admin.css"
 import { useEffect, useState } from "react";
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 export default function SDashboard(){
-  
+  const navigate = useNavigate();
+  if(!localStorage.getItem('Name')){
+    navigate('/');
+  }
+  if (localStorage.getItem('authToken')!= "seller") {
+    navigate('/Properties');
+  }
   const [data,setData] = useState([]);
   const loadPayment = async () => {
     let id = localStorage.getItem("data");

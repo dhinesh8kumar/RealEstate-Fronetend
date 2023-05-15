@@ -10,11 +10,11 @@ import CloseIcon from '@mui/icons-material/Close';
 import { useNavigate } from 'react-router-dom';
 export default function BDashboard(){
   const navigate = useNavigate();
-  if(!localStorage.getItem('data')){
+  if(!localStorage.getItem('Name')){
     navigate('/');
   }
-  if (localStorage.getItem('data')!= "buyer") {
-    navigate('/SDashboard');
+  if (localStorage.getItem('authToken')!= 'buyer') {
+    navigate('/SDashboard/List');
   }
   const [txn, setTxn] = useState([]);
   const [data,setData] = useState([]);
