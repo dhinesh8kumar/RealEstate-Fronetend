@@ -80,7 +80,7 @@ function Bsignup() {
         initialValues={{ fullname: "", email: "", mob: "", password: "", confirmPassword: "", address: "", passport: "", file: "",pfile: "" }}
         onSubmit={(values) => {
           // Alert the input values of the form that we filled
-            axios.post("http://localhost:9091/bsignup",{
+            axios.post("http://localhost:9091/Bsignup",{
             values
         }).then(()=>{
             console.log("success");

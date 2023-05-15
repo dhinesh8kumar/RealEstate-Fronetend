@@ -79,6 +79,16 @@ export default function Cverify() {
 
                         {data.map((item, index) => {
 
+                            const verify=item.Verify;
+                            let statusText;
+                            if (verify === -1) {
+                                statusText = 'InProgress';
+                            } else if (verify === 1) {
+                                statusText = '✔ Resolved';
+                            } else {
+                                statusText = 'X Not Resolved';
+                            }
+
                             const Accept = () => {
 
                                 axios.put(`http://localhost:9091/caccept`, {
@@ -161,7 +171,7 @@ export default function Cverify() {
 
                                     <td>{item.Descrp}</td>
 
-                                    <td>{item.Verify}</td>
+                                    <td>{statusText}</td>
 
 
 

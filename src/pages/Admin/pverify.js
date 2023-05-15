@@ -86,7 +86,6 @@ export default function Admin() {
 
                         {data.map((item, index) => {
                             const verify=item.Verify;
-                             
                                 let statusText;
                                 if (verify === -1) {
                                     statusText = 'O In process';
@@ -95,9 +94,6 @@ export default function Admin() {
                                 } else {
                                     statusText = 'X Denied';
                                 }
-                                
-                            
-
                             return (
 
                                 <tr key={item.id}>

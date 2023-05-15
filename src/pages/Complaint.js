@@ -3,6 +3,8 @@ import "../styles/Complaint.css";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import Navbar from "../components/Newnavbar";
+import axios from 'axios';
+
 
 
 function Complaint(){
@@ -25,7 +27,7 @@ function Complaint(){
     subject: Yup.string()
     .required("Enter the subject"),
 
-    desc: Yup.string()
+    descrp: Yup.string()
     .required("Describe your issue"),
     
   });
@@ -35,16 +37,20 @@ function Complaint(){
     <Formik
      validationSchema={schema}
      initialValues={{ 
-       fullname: name, 
+       fullname: "", 
        email: "", 
-       id: x,
+       id: "",
        issueid: "",
        subject: "",
-       desc:""
+       descrp:""
      }}
      onSubmit={(values) => {
-       // Alert the input values of the form that we filled
-       alert(JSON.stringify(values));
+       alert(values);
+       console.log(values);
+      axios.post("http://localhost:9091/complaint",{values}).then(()=>{
+        console.log("success");
+        window.location.reload(false);
+        });
      }}>
 
 {({
@@ -65,7 +71,7 @@ function Complaint(){
                 {/* Our input html with passing formik parameters like handleChange, values, handleBlur to input properties */}
                 <input
                   type="text"
-                  disabled={true}
+                  // disabled={true}
                   name="fullname"
                   onChange={handleChange}
                   onBlur={handleBlur}
@@ -101,7 +107,7 @@ function Complaint(){
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.id}
-                  disabled={true}
+                  // disabled={true}
                   placeholder="Your ID "
                   className="form-control inp_text"
                   id="id"
@@ -113,7 +119,7 @@ function Complaint(){
 
                 <input
                   type="text"
-                  name="isseid"
+                  name="issueid"
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.issueid}
@@ -157,17 +163,17 @@ function Complaint(){
                 <textarea 
                   style={{backgroundColor: "#f2f2f2",marginBottom:"15px"}}
                   type="textarea"
-                  name="desc"
+                  name="descrp"
                   placeholder="Desciption"
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  value={values.desc}
+                  value={values.descrp}
                   className="form-control inp_text texta"
                   id="desc">
                     </textarea>
                 {/* If validation is not passed show errors */}
                 <p className="error">
-                  {errors.desc && touched.desc && errors.desc}
+                  {errors.descrp && touched.descrp && errors.descrp}
                 </p>
                 
                 <button type="submit">Sign Up</button>

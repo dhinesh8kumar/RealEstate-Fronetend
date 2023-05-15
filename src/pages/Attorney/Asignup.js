@@ -3,6 +3,8 @@ import { Formik } from "formik";
 import * as Yup from "yup";
 import Navbar from "../../components/Navbar";
 import {Link} from "react-router-dom";
+import axios from 'axios';
+import { padding, style } from "@mui/system";
 
 
 function Asignup() {
@@ -58,10 +60,11 @@ function Asignup() {
             profile:"",
           }}
           onSubmit={(values) => {
-            // Alert the input values of the form that we filled
-            alert(JSON.stringify(values));
-            //to reload the page after clicking on ok in the alert
-            window.location.reload();
+            axios.post("http://localhost:9091/Asignup",{values}).then(()=>{
+              console.log("success");
+              window.location.reload(false);
+              alert("Your data sent successfully for the review.");
+              });
           }}
         >
           {({

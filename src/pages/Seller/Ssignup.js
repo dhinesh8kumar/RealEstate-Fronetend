@@ -3,6 +3,8 @@ import { Formik } from "formik";
 import * as Yup from "yup";
 import Navbar from "../../components/Navbar"
 import {Link} from "react-router-dom";
+import axios from 'axios';
+
 
 
 function Ssignup() {
@@ -71,8 +73,11 @@ function Ssignup() {
         }}
         onSubmit={(values) => {
           // Alert the input values of the form that we filled
-          alert(JSON.stringify(values));
-          window.location.reload();
+          axios.post("http://localhost:9091/Ssignup",{values}).then(()=>{
+            console.log("success");
+            window.location.reload(false);
+            alert("Your data sent successfully for the review.");
+            });
         }}
       >
         {({

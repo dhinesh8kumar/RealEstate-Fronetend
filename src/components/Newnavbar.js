@@ -7,6 +7,7 @@ export default function NewNavbar(){
   const logout= ()=>{
     localStorage.removeItem("data");
     localStorage.removeItem("authToken");
+    localStorage.removeItem("Name");
     navigate('/');
   }
     return (
