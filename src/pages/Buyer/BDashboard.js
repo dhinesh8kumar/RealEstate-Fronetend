@@ -22,7 +22,7 @@ export default function BDashboard() {
     let id = localStorage.getItem("data");
 
     const response = await axios
-      .get("http://localhost:9091/api/bpayment/", {
+      .get("https://realestate-backend-b20k.onrender.com/api/bpayment/", {
         params: {
           user: id,
           verify: -1,
@@ -44,7 +44,7 @@ export default function BDashboard() {
     let id = localStorage.getItem("data");
 
     const res = await axios
-      .get("http://localhost:9091/api/bpayment/", {
+      .get("https://realestate-backend-b20k.onrender.com/api/bpayment/", {
         params: {
           user: id,
           verify: 0,
@@ -66,7 +66,7 @@ export default function BDashboard() {
     let id = localStorage.getItem("data");
 
     const response = await axios
-      .get("http://localhost:9091/api/bpayment/", {
+      .get("https://realestate-backend-b20k.onrender.com/api/bpayment/", {
         params: {
           user: id,
           verify: 1,
