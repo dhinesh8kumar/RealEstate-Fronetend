@@ -59,6 +59,15 @@ export default function SDashboard(){
   </thead>
   <tbody>
     {data.map((item,index)=> {
+      const verify=item.Verify;
+      let statusText;
+      if (verify === -1) {
+          statusText = 'O In process';
+      } else if (verify === 1) {
+          statusText = '✔ Approved';
+      } else {
+          statusText = 'X Denied';
+      }
       return(
         <tr key={item.id}>
           <th scope='row'>{index+1}</th>
@@ -68,7 +77,7 @@ export default function SDashboard(){
         <td>$ {item.Amount}</td>
         <td>{item.Seller_id}</td>
         <td>{item.Attorney_id}</td>
-        <td>{item.Verify}</td>
+        <td>{statusText}</td>
         </tr>
       )
     })}

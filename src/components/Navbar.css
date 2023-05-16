@@ -7,6 +7,10 @@
       color: #000 !important;
       
   }
+  .navbar-brand:hover{
+    color: #000 !important;
+  }
+  
   .navbar .navbar-nav .nav-link {
     color: #000 !important;
     font-size: 15px;

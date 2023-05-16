@@ -10,7 +10,16 @@ import { useNavigate } from 'react-router-dom';
 
 import axios from "axios";
 export default function Admin(){
- 
+  const navigate= useNavigate();
+  if(!localStorage.getItem("authToken")){
+    navigate('/Login')
+  }
+  else if(localStorage.getItem("authToken")!=='buyer'){
+    navigate('/Properties')
+  }
+  else if(localStorage.getItem("authToken")!=='seller'){
+    navigate('/SDashboard/List')
+  }
   const [data,setData] = useState([]);
   const loadBuyer = async () => {
     const response = await axios.get("http://localhost:9091/api/buyer");

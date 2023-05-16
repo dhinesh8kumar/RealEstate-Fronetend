@@ -4,13 +4,7 @@ import Sidebar from "../../components/Sidebar"
 
 import "../../styles/admin.css"
 
-import Button from '@mui/material/Button';
-
-import Stack from '@mui/material/Stack';
-
-import DoneIcon from '@mui/icons-material/Done';
-
-import CloseIcon from '@mui/icons-material/Close';
+import { useNavigate } from 'react-router-dom';
 
 import { useEffect } from "react";
 
@@ -19,11 +13,20 @@ import { useEffect } from "react";
 
 
 import axios from "axios";
-import { AdsClick } from '@mui/icons-material';
+
 
 export default function Admin() {
 
-
+    const navigate= useNavigate();
+  if(!localStorage.getItem("authToken")){
+    navigate('/Login')
+  }
+  else if(localStorage.getItem("authToken")!=='buyer'){
+    navigate('/Properties')
+  }
+  else if(localStorage.getItem("authToken")!=='seller'){
+    navigate('/SDashboard/List')
+  }
 
     const [data, setData] = useState([]);
 

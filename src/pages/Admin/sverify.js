@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import Sidebar from "../../components/Sidebar"
-
+import { useNavigate } from 'react-router-dom';
 import "../../styles/admin.css"
 
 import Button from '@mui/material/Button';
@@ -23,7 +23,16 @@ import { AdsClick } from '@mui/icons-material';
 
 export default function Sverify() {
 
-
+    const navigate= useNavigate();
+  if(!localStorage.getItem("authToken")){
+    navigate('/Login')
+  }
+  else if(localStorage.getItem("authToken")!=='buyer'){
+    navigate('/Properties')
+  }
+  else if(localStorage.getItem("authToken")!=='seller'){
+    navigate('/SDashboard/List')
+  }
 
     const [data, setData] = useState([]);
 

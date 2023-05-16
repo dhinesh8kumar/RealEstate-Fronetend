@@ -252,7 +252,7 @@ function Bsignup() {
                 <button type="submit">Sign Up</button>
                 <div><a href="contactus" id="bhelp">Need help?</a></div>
               </form>
-              <br></br> <div className="fck">Already have the account? <Link to="/LogIn" id="blogin">Sign In</Link></div>
+              <br></br> <div className="fck">Already have an account? <Link to="/LogIn" id="blogin">Sign In</Link></div>
             </div>
           </div>
           </div>
