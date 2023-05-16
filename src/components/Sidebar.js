@@ -1,9 +1,15 @@
 import React from "react";
 import "./Sidebar.css";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 
 
 export default function Sidebar(){
+  const navigate= useNavigate();
+  const logout= ()=>{
+    localStorage.removeItem("data");
+    localStorage.removeItem("authToken");
+    navigate('/');
+  }
     return(
         <div className="sidebar open">
         
@@ -66,7 +72,7 @@ export default function Sidebar(){
                  <div className="job">RealEtsy </div>
                </div>
              </div>
-             <i className='bx bx-log-out' id="log_out" ></i>
+             <i className='bx bx-log-out' onClick={logout} id="log_out" ></i>
          </li>
         </ul>
       </div> 

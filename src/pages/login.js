@@ -21,6 +21,10 @@ const currencies = [
     value: "seller",
     label: "Seller",
   },
+  {
+    value: "login",
+    label: "Admin",
+  },
 ];
 function Login() {
   // creating schema
@@ -43,6 +47,10 @@ function Login() {
     navigate("/Properties");
   } else if (x === "seller") {
     navigate("/SDashboard/List");
+  } else if (x === "seller") {
+    navigate("/SDashboard/List");
+  } else if (x === "admin") {
+    navigate("/Admin/Buyer");
   }
 
   return (
@@ -94,6 +102,10 @@ function Login() {
                 } else if (response.data.verify === 0) {
                   alert("Your profile verification has been rejected");
                 }
+              } else if (values.type === "login") {
+                localStorage.setItem("authToken", "admin");
+
+                navigate("/Admin/Buyer");
               }
             })
             .catch((error) => {

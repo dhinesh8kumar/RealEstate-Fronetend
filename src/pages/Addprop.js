@@ -81,10 +81,14 @@ export default function Addprop() {
         }}
         onSubmit={(values) => {
           axios
+
             .post("http://localhost:9091/AddProperty", { values })
+
             .then(() => {
               console.log("success");
+
               window.location.reload(false);
+
               alert("Your data sent successfully for the review.");
             });
         }}
