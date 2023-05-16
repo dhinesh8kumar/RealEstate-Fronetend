@@ -188,17 +188,14 @@ function Login() {
                   {/* Click on submit button to submit the form */}
                   <button type="submit">Login</button>
                   <div>
-                    <a href="contactus" id="help">
-                      Need help?
-                    </a>
+                    <Link to="/help" id="help">Need Help?</Link>
                   </div>
                 </form>
                 <br></br>{" "}
                 <div id="fck">
                   Don't have an account?{" "}
-                  <a href="signup" id="signup">
-                    Sign Up
-                  </a>
+                  
+                  <Link to="/" id="signup">Sign Up</Link>
                 </div>
               </div>
             </div>

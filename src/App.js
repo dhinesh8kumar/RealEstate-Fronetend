@@ -28,6 +28,7 @@ import Averify from './pages/Admin/averify'
 import Pverify from './pages/Admin/pverify'
 import Cverify from './pages/Admin/cverify'
 import List from './pages/Seller/List';
+import Contact from './pages/contactus';
 function App() {
   return (
     
@@ -60,6 +61,7 @@ function App() {
         <Route path="/Transaction" element={<Transaction/>}/>
         <Route path="/BDashboard" element={<BDashboard/>}/>
         <Route path="/Sverify" element={<Sverify/>}/>
+        <Route path="/help" element={<Contact/>}/>
       </Routes>
     </Router>
     

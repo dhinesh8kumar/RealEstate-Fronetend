@@ -240,10 +240,8 @@ function Asignup() {
                   
                     <button type="submit">Sign Up</button>
                     <div>
-                      <a href="contactus" id="help">
-                        Need help?
-                      </a>
-                    </div>
+                    <Link to="/help" id="help">Need Help?</Link>
+                  </div>
                   </form>
                   <br></br>{" "}
                   <div className="fck">

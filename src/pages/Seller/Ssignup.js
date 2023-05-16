@@ -239,7 +239,9 @@ function Ssignup() {
                 {/* If validation is not passed show errors */}
                 {/* Click on submit button to submit the form */}
                 <button type="submit">Sign Up</button>
-                <div><a href="contactus" id="shelp">Need help?</a></div>
+                <div>
+                    <Link to="/help" id="shelp">Need Help?</Link>
+                  </div>
               </form>
               <br></br> <div className="fck">Already have the account? <Link to="/LogIn" id="slogin">Sign In</Link></div>
             </div>

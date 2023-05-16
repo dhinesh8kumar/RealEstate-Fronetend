@@ -43,7 +43,7 @@ export default function NewNavbar(){
           </a>
           <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
             <Link to="/About" className="dropdown-item"><li>About Us</li></Link>
-            <Link to="/T&C" className="dropdown-item"><li>Terms & Conditions</li></Link>
+            <Link to="/Tandc" className="dropdown-item"><li>Terms & Conditions</li></Link>
             
             
             

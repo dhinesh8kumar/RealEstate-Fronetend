@@ -5,6 +5,7 @@ import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Sidebar from "../components/Ssidebar";
+import { Link } from "react-router-dom";
 
 const purpose = [
   { label: "Sell", value: "sell" },
@@ -321,9 +322,7 @@ export default function Addprop() {
                   {/* Click on submit button to submit the form */}
                   <button type="submit">Sign Up</button>
                   <div>
-                    <a href="contactus" id="help">
-                      Need help?
-                    </a>
+                    <Link to="/help" id="help">Need Help?</Link>
                   </div>
                 </form>
               </div>
