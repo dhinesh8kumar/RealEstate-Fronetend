@@ -60,8 +60,8 @@ function Login() {
         validationSchema={schema}
         initialValues={{ email: "", password: "", type: "" }}
         onSubmit={(values) => {
-          // Alert the input values of the form that we filled
-          axios.post("https://realestate-backend-b20k.onrender.com/login",
+          // Alert the input values of th] form that we filled
+          axios.post("http://localhost:9091/login",
             { values })
             .then(response => {
               // Login successful, redirect to profile page
@@ -187,14 +187,17 @@ function Login() {
                   {/* Click on submit button to submit the form */}
                   <button type="submit">Login</button>
                   <div>
-                    <Link to="/help" id="help">Need Help?</Link>
+                    <a href="contactus" id="help">
+                      Need help?
+                    </a>
                   </div>
                 </form>
                 <br></br>{" "}
                 <div id="fck">
                   Don't have an account?{" "}
-                  
-                  <Link to="/" id="signup">Sign Up</Link>
+                  <a href="signup" id="signup">
+                    Sign Up
+                  </a>
                 </div>
               </div>
             </div>
