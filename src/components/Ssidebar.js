@@ -5,6 +5,7 @@ import {Link, useNavigate} from "react-router-dom";
 
 export default function Sidebar(){
   const x= localStorage.getItem("Name");
+  const id =localStorage.getItem('data');
   const navigate = useNavigate();
   const logout= ()=>{
     localStorage.removeItem("data");
@@ -50,7 +51,7 @@ export default function Sidebar(){
               
                <div className="name_job">
                  <div className="name">{x}</div>
-                 <div className="job">RealEtsy </div>
+                 <div className="job">ID: #{id} </div>
                </div>
              </div>
              <i className='bx bx-log-out' onClick={logout} id="log_out" ></i>

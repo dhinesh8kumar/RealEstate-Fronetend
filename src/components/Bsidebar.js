@@ -12,6 +12,7 @@ export default function Sidebar(){
     navigate('/');
   }
   const x= localStorage.getItem("Name");
+  const user_id = localStorage.getItem("data");
     return(
         <div className="sidebar open">
         <Link to="/Properties"><div className="logo-details">
@@ -35,7 +36,7 @@ export default function Sidebar(){
               
                <div className="name_job">
                  <div className="name">{x}</div>
-                 <div className="job">RealEtsy </div>
+                 <div className="job">ID: #{user_id} </div>
                </div>
              </div>
              <i className='bx bx-log-out' onClick={logout} id="log_out" ></i>

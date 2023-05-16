@@ -12,18 +12,18 @@
   }
   .description {
     width: 18.5rem;
-    margin-left: 8rem;
-    margin-top: 6rem;
+    margin-left: 8rem !important;
+    margin-top: 6rem !important;
     font-weight: bold;
     font-size: 1.5rem;
   }
   .cta {
     margin-left: 8rem;
-    margin-top: 6rem;
+    margin-top: 6rem !important;
     text-decoration: none !important;
     padding: 10px 15px;
-    background-color: #ffffff;
-    color: #000000;
+    background-color: #000000;
+    color: #ffffff;
     border-radius: 5px;
     font-weight: 500;
     font-size: 17px;
