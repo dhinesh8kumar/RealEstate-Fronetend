@@ -19,10 +19,11 @@
   }
   .cta {
     margin-left: 8rem;
-    margin-top: 6rem !important;
+    margin-top: 30px;
     text-decoration: none !important;
     padding: 10px 15px;
     background-color: #000000;
+    display: inline-block;
     color: #ffffff;
     border-radius: 5px;
     font-weight: 500;

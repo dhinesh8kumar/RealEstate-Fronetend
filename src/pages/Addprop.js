@@ -83,7 +83,9 @@ export default function Addprop() {
         onSubmit={(values) => {
           axios
 
-            .post("https://realestate-backend-b20k.onrender.com/AddProperty", { values })
+            .post("https://realestate-backend-b20k.onrender.com/AddProperty", {
+              values,
+            })
 
             .then(() => {
               console.log("success");
@@ -320,9 +322,11 @@ export default function Addprop() {
 
                   {/* If validation is not passed show errors */}
                   {/* Click on submit button to submit the form */}
-                  <button type="submit">Sign Up</button>
+                  <button type="submit">Add Property</button>
                   <div>
-                    <Link to="/help" id="help">Need Help?</Link>
+                    <Link to="/help" id="help">
+                      Need Help?
+                    </Link>
                   </div>
                 </form>
               </div>

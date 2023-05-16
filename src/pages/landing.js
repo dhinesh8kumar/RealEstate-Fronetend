@@ -17,7 +17,7 @@ export default function Hero() {
           From cozy condos to spacious villas, we've got a property that'll give
           you thrills-a!
         </p>
-        <Link to="./LogIn" className="cta">
+        <Link to="./LogIn" className="cta" style={{marginTop:"20px"}}>
         
           EXPLORE
         
