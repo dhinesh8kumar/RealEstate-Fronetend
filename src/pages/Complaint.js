@@ -39,7 +39,7 @@ function Complaint(){
      initialValues={{ 
        fullname: "", 
        email: "", 
-       id: "",
+       id: x,
        issueid: "",
        subject: "",
        descrp:""
@@ -106,7 +106,7 @@ function Complaint(){
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.id}
-                  // disabled={true}
+                  disabled={true}
                   placeholder="Your ID "
                   className="form-control inp_text"
                   id="id"

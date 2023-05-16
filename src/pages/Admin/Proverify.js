@@ -13,16 +13,25 @@ import DoneIcon from '@mui/icons-material/Done';
 import CloseIcon from '@mui/icons-material/Close';
 
 import { useEffect } from "react";
-
+import { useNavigate } from 'react-router-dom';
 
 
 
 
 import axios from "axios";
-import { AdsClick } from '@mui/icons-material';
+
 
 export default function Proverify() {
-
+    const navigate= useNavigate();
+  if(!localStorage.getItem("authToken")){
+    navigate('/Login')
+  }
+  else if(localStorage.getItem("authToken")!=='buyer'){
+    navigate('/Properties')
+  }
+  else if(localStorage.getItem("authToken")!=='seller'){
+    navigate('/SDashboard/List')
+  }
 
 
     const [data, setData] = useState([]);

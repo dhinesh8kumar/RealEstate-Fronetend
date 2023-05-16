@@ -4,7 +4,7 @@ import Sidebar from "../../components/Sidebar"
 
 import "../../styles/admin.css"
 
-
+import { useNavigate } from 'react-router-dom';
 
 import { useEffect } from "react";
 
@@ -17,7 +17,16 @@ import axios from "axios";
 
 export default function Cverify() {
 
-
+    const navigate= useNavigate();
+  if(!localStorage.getItem("authToken")){
+    navigate('/Login')
+  }
+  else if(localStorage.getItem("authToken")!=='buyer'){
+    navigate('/Properties')
+  }
+  else if(localStorage.getItem("authToken")!=='seller'){
+    navigate('/SDashboard/List')
+  }
 
     const [data, setData] = useState([]);
 

@@ -8,7 +8,9 @@
     -o-background-size: cover;
     background-size: cover;
 } */
-
+.fck:hover{
+  color: black !important;
+}
 .bgb{
   background: url(../assets/bg-forms.jpg) no-repeat center center fixed; 
     -webkit-background-size: cover;
