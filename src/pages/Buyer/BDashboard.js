@@ -1,23 +1,23 @@
 import React from "react";
-import BSidebar from "../../components/Bsidebar"
-import "../../styles/admin.css"
+import BSidebar from "../../components/Bsidebar";
+import "../../styles/admin.css";
 import { useEffect, useState } from "react";
-import axios from 'axios';
-import Button from '@mui/material/Button';
-import Stack from '@mui/material/Stack';
-import DoneIcon from '@mui/icons-material/Done';  
-import CloseIcon from '@mui/icons-material/Close';  
-import { useNavigate } from 'react-router-dom';
-export default function BDashboard(){
+import axios from "axios";
+import Button from "@mui/material/Button";
+import Stack from "@mui/material/Stack";
+import DoneIcon from "@mui/icons-material/Done";
+import CloseIcon from "@mui/icons-material/Close";
+import { useNavigate } from "react-router-dom";
+export default function BDashboard() {
   const navigate = useNavigate();
-  if(!localStorage.getItem('Name')){
-    navigate('/');
+  if (!localStorage.getItem("Name")) {
+    navigate("/");
   }
-  if (localStorage.getItem('authToken')!== 'buyer') {
-    navigate('/SDashboard/List');
+  if (localStorage.getItem("authToken") !== "buyer") {
+    navigate("/SDashboard/List");
   }
   const [txn, setTxn] = useState([]);
-  const [data,setData] = useState([]);
+  const [data, setData] = useState([]);
   const loadBuyer = async () => {
     let id = localStorage.getItem("data");
     
@@ -42,7 +42,25 @@ export default function BDashboard(){
   useEffect(()=> {
     loadBuyer();
 
-  },[]);
+    const response = await axios
+      .get("http://localhost:9091/api/bpayment/", {
+        params: {
+          user: id,
+          verify: -1,
+        },
+      })
+      .then((response) => {
+        console.log(response.data);
+        setData(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  });
+
+  useEffect(() => {
+    loadBuyer();
+  }, []);
   const loadTxn = async () => {
     let id = localStorage.getItem("data");
     
@@ -67,8 +85,25 @@ export default function BDashboard(){
   useEffect(()=> {
     loadTxn();
 
-  },[]);
-  const [txn1,setTxn1]= useState([]);
+    const res = await axios
+      .get("http://localhost:9091/api/bpayment/", {
+        params: {
+          user: id,
+          verify: 0,
+        },
+      })
+      .then((res) => {
+        setTxn(res.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  });
+
+  useEffect(() => {
+    loadTxn();
+  }, []);
+  const [txn1, setTxn1] = useState([]);
   const loadTxn1 = async () => {
     let id = localStorage.getItem("data");
     
@@ -89,17 +124,16 @@ export default function BDashboard(){
     });
     
   };
-  
-  useEffect(()=> {
-    loadTxn1();
 
-  },[]);
+  useEffect(() => {
+    loadTxn1();
+  }, []);
   const txn2 = [...new Set(txn.concat(txn1))];
-    return (
-        <>
-        <BSidebar/>
-        <div className="main">
-          <h4>Pending Transactions</h4>
+  return (
+    <>
+      <BSidebar />
+      <div className="main">
+        <h4>Pending Transactions</h4>
         <table className="table">
   <thead className="k">
     <tr>
@@ -173,40 +207,36 @@ export default function BDashboard(){
 </table>
 <h4>Completed Transactions</h4>
         <table className="table">
-  <thead className="k">
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Payment ID</th>
-      <th scope="col">Buyer</th>
-      <th scope="col">Property ID</th>
-      <th scope="col">Amount</th>
-      <th scope="col">Seller</th>
-      <th scope="col">Attorney</th>
-      <th scope="col">Status</th>
-
-    </tr>
-  </thead>
-  <tbody>
-    {txn2.map((txn,index)=>{
-      
-      return (
-        
-        <tr key={txn.id}>
-        <th scope='row'>{index+1}</th>
-        <td>{txn.id}</td>
-        <td>{txn.Buyer_id}</td>
-        <td>{txn.Property_id}</td>
-        <td>$ {txn.Amount}</td>
-        <td>{txn.Seller_id}</td>
-        <td >{txn.Attorney_id}</td>
-        <td>{txn.Verify === 1 ? 'Approved' : 'Denied'}</td>
-        </tr>
-        
-      )
-    })}
-  </tbody>
-  </table>
-        </div>
-        </>
-    );
+          <thead className="k">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Payment ID</th>
+              <th scope="col">Buyer</th>
+              <th scope="col">Property ID</th>
+              <th scope="col">Amount</th>
+              <th scope="col">Seller</th>
+              <th scope="col">Attorney</th>
+              <th scope="col">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            {txn2.map((txn, index) => {
+              return (
+                <tr key={txn.id}>
+                  <th scope="row">{index + 1}</th>
+                  <td>{txn.id}</td>
+                  <td>{txn.Buyer_id}</td>
+                  <td>{txn.Property_id}</td>
+                  <td>$ {txn.Amount}</td>
+                  <td>{txn.Seller_id}</td>
+                  <td>{txn.Attorney_id}</td>
+                  <td>{txn.Verify === 1 ? "Approved" : "Denied"}</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+    </>
+  );
 }
