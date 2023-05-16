@@ -14,7 +14,7 @@ export default function List(){
   const loadPayment = async () => {
     let id = localStorage.getItem("data");
     
-    const response = await axios.get('http://localhost:9091/api/sproperty/', {
+    const response = await axios.get('https://realestate-backend-b20k.onrender.com/api/sproperty/', {
       params: {
         user: id,
         

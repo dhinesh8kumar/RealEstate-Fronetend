@@ -92,7 +92,7 @@ export default function Addprop() {
         onSubmit={(values) => {
           axios
 
-            .post("http://localhost:9091/AddProperty", { values })
+            .post("https://realestate-backend-b20k.onrender.com/AddProperty", { values })
 
             .then(() => {
 

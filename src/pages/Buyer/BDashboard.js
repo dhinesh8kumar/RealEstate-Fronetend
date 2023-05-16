@@ -21,7 +21,7 @@ export default function BDashboard(){
   const loadBuyer = async () => {
     let id = localStorage.getItem("data");
     
-    const response = await axios.get('http://localhost:9091/api/bpayment/', {
+    const response = await axios.get('https://realestate-backend-b20k.onrender.com/api/bpayment/', {
       params: {
         user: id,
         verify: -1
@@ -46,7 +46,7 @@ export default function BDashboard(){
   const loadTxn = async () => {
     let id = localStorage.getItem("data");
     
-    const res = await axios.get('http://localhost:9091/api/bpayment/', {
+    const res = await axios.get('https://realestate-backend-b20k.onrender.com/api/bpayment/', {
       params: {
         user: id,
         verify: 0
@@ -72,7 +72,7 @@ export default function BDashboard(){
   const loadTxn1 = async () => {
     let id = localStorage.getItem("data");
     
-    const response = await axios.get('http://localhost:9091/api/bpayment/', {
+    const response = await axios.get('https://realestate-backend-b20k.onrender.com/api/bpayment/', {
       params: {
         user: id,
         verify: 1
@@ -117,7 +117,7 @@ export default function BDashboard(){
   <tbody>
     {data.map((item,index)=>{
       const Accept = () => {
-        axios.put(`http://localhost:9091/paccept`, {
+        axios.put(`https://realestate-backend-b20k.onrender.com/paccept`, {
           verify:1,
           id: item.id
         })
@@ -132,7 +132,7 @@ export default function BDashboard(){
         window.location.reload()
       };
       const Reject = () => {
-        axios.put(`http://localhost:9091/paccept`, {
+        axios.put(`https://realestate-backend-b20k.onrender.com/paccept`, {
           verify:0,
           id: item. id
         })

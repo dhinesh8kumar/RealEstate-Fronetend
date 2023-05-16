@@ -17,7 +17,7 @@ export default function Card() {
   }
   const [data,setData] = useState([]);
   const loadProperty = async () => {
-    const response = await axios.get("http://localhost:9091/api/attorney");
+    const response = await axios.get("https://realestate-backend-b20k.onrender.com/api/attorney");
     setData(response.data);
   };
   useEffect(()=> {

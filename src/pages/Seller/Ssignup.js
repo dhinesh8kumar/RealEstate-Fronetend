@@ -73,7 +73,7 @@ function Ssignup() {
         }}
         onSubmit={(values) => {
           // Alert the input values of the form that we filled
-          axios.post("http://localhost:9091/Ssignup",{values}).then(()=>{
+          axios.post("https://realestate-backend-b20k.onrender.com/Ssignup",{values}).then(()=>{
             console.log("success");
             window.location.reload(false);
             alert("Your data sent successfully for the review.");

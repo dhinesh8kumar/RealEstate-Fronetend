@@ -26,7 +26,7 @@ const Body = () => {
   const [typeFilters, setTypeFilters] = useState([]);
 
   const loadProperty = async () => {
-    const response = await axios.get("http://localhost:9091/api/property");
+    const response = await axios.get("https://realestate-backend-b20k.onrender.com/api/property");
 
 
     setData(response.data);
