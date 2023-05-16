@@ -52,7 +52,7 @@ export default function Payment(){
 
     const handleSubmit =(event)=>{
         event.preventDefault();
-        axios.post("http://localhost:9091/payment",{
+        axios.post("https://realestate-backend-b20k.onrender.com/payment",{
             email:email,
             name: name,
             seller:seller,

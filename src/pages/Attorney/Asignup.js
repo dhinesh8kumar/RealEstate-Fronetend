@@ -59,7 +59,7 @@ function Asignup() {
             profile: "",
           }}
           onSubmit={(values) => {
-            axios.post("http://localhost:9091/Asignup", { values }).then(() => {
+            axios.post("https://realestate-backend-b20k.onrender.com/Asignup", { values }).then(() => {
               console.log("success");
               window.location.reload(false);
               alert("Your data sent successfully for the review.");

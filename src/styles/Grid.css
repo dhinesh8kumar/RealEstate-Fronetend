@@ -36,7 +36,7 @@
     font-weight: bold;
 }
 
-img{
+.item img{
     width: 150px;
     height: 220px;
     border-radius: 10px;

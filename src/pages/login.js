@@ -61,10 +61,9 @@ function Login() {
         initialValues={{ email: "", password: "", type: "" }}
         onSubmit={(values) => {
           // Alert the input values of the form that we filled
-          axios
-            .post("http://localhost:9091/login", { values })
-            .then((response) => {
-              // window.location.reload(false);
+          axios.post("https://realestate-backend-b20k.onrender.com/login",
+            { values })
+            .then(response => {
               // Login successful, redirect to profile page
               if (values.type === "buyer") {
                 if (response.data.verify === 1) {
