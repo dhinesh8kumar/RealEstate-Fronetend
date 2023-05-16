@@ -20,27 +20,6 @@ export default function BDashboard() {
   const [data, setData] = useState([]);
   const loadBuyer = async () => {
     let id = localStorage.getItem("data");
-    
-    const response = await axios.get('https://realestate-backend-b20k.onrender.com/api/bpayment/', {
-      params: {
-        user: id,
-        verify: -1
-      }
-      
-    })
-    .then(response => {
-      console.log(response.data);
-      setData(response.data);
-    })
-    .catch(error => {
-      console.log(error);
-      
-    });
-    
-  };
-  
-  useEffect(()=> {
-    loadBuyer();
 
     const response = await axios
       .get("http://localhost:9091/api/bpayment/", {
@@ -56,34 +35,13 @@ export default function BDashboard() {
       .catch((error) => {
         console.log(error);
       });
-  });
+  };
 
   useEffect(() => {
     loadBuyer();
   }, []);
   const loadTxn = async () => {
     let id = localStorage.getItem("data");
-    
-    const res = await axios.get('https://realestate-backend-b20k.onrender.com/api/bpayment/', {
-      params: {
-        user: id,
-        verify: 0
-      }
-      
-    })
-    .then(res => {
-      
-      setTxn(res.data);
-    })
-    .catch(error => {
-      console.log(error);
-      
-    });
-    
-  };
-  
-  useEffect(()=> {
-    loadTxn();
 
     const res = await axios
       .get("http://localhost:9091/api/bpayment/", {
@@ -98,7 +56,7 @@ export default function BDashboard() {
       .catch((error) => {
         console.log(error);
       });
-  });
+  };
 
   useEffect(() => {
     loadTxn();
@@ -106,23 +64,20 @@ export default function BDashboard() {
   const [txn1, setTxn1] = useState([]);
   const loadTxn1 = async () => {
     let id = localStorage.getItem("data");
-    
-    const response = await axios.get('https://realestate-backend-b20k.onrender.com/api/bpayment/', {
-      params: {
-        user: id,
-        verify: 1
-      }
-      
-    })
-    .then(res => {
-      
-      setTxn1(res.data);
-    })
-    .catch(error => {
-      console.log(error);
-      
-    });
-    
+
+    const response = await axios
+      .get("http://localhost:9091/api/bpayment/", {
+        params: {
+          user: id,
+          verify: 1,
+        },
+      })
+      .then((res) => {
+        setTxn1(res.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   useEffect(() => {
