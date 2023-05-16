@@ -12,7 +12,7 @@ export default function NewNavbar(){
   }
     return (
         <>
-        <nav className="navbar navbar-expand-lg navbar-light fixed-top">
+        <nav className="navbar navbar-expand-lg navbar-light fixed-top" style={{height:"60px"}}>
   <div className="container-fluid">
     <Link to="/Properties" className="navbar-brand fw-bold">
     RealEtsy
@@ -50,7 +50,7 @@ export default function NewNavbar(){
           </ul>
         </li>
       </ul>
-      <button onClick={logout}  className="btn btn-outline-dark fw-bold" type="submit">Log Out</button>
+      <button onClick={logout}  className="btn btn-outline-dark fw-bold" type="submit" style={{marginTop:"25px"}}>Log Out</button>
       
     </div>
   </div>

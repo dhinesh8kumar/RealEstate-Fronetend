@@ -42,6 +42,7 @@ export default function Card() {
               type="search"
               placeholder="Search"
               aria-label="Search"
+              style={{marginBottom:"30px"}}
               // onChange={(e) => {
               //   setSearchText(e.target.value);
               // }}

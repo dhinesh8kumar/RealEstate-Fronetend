@@ -5,7 +5,7 @@ export default function Navbar(){
   
     return (
         <>
-        <nav className="navbar navbar-expand-lg navbar-light fixed-top">
+        <nav className="navbar navbar-expand-lg navbar-light fixed-top" style={{height:"60px"}}>
   <div className="container-fluid">
     <Link to="/" className="navbar-brand fw-bold">
     RealEtsy
@@ -44,7 +44,7 @@ export default function Navbar(){
           </ul>
         </li>
       </ul>
-      <Link to="/Login"><button className="btn btn-outline-dark fw-bold" type="submit">Log In</button></Link>
+      <Link to="/Login"><button className="btn btn-outline-dark fw-bold" type="submit" style={{marginTop:"30px"}}>Log In</button></Link>
       
     </div>
   </div>
