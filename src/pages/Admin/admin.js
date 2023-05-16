@@ -6,7 +6,7 @@ import Stack from '@mui/material/Stack';
 import DoneIcon from '@mui/icons-material/Done';  
 import CloseIcon from '@mui/icons-material/Close';  
 import { useEffect } from "react";
-
+import { useNavigate } from 'react-router-dom';
 
 import axios from "axios";
 export default function Admin(){

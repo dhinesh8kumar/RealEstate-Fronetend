@@ -13,7 +13,7 @@ export default function BDashboard(){
   if(!localStorage.getItem('Name')){
     navigate('/');
   }
-  if (localStorage.getItem('authToken')!= 'buyer') {
+  if (localStorage.getItem('authToken')!== 'buyer') {
     navigate('/SDashboard/List');
   }
   const [txn, setTxn] = useState([]);
@@ -134,7 +134,7 @@ export default function BDashboard(){
       const Reject = () => {
         axios.put(`http://localhost:9091/paccept`, {
           verify:0,
-          id: item.id
+          id: item. id
         })
         .then(response => {
           console.log(response.data);
