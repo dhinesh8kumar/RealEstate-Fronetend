@@ -26,10 +26,10 @@ export default function Proverify() {
   if(!localStorage.getItem("authToken")){
     navigate('/Login')
   }
-  else if(localStorage.getItem("authToken")!=='buyer'){
+  else if(localStorage.getItem("authToken")==='buyer'){
     navigate('/Properties')
   }
-  else if(localStorage.getItem("authToken")!=='seller'){
+  else if(localStorage.getItem("authToken")==='seller'){
     navigate('/SDashboard/List')
   }
 
