@@ -250,7 +250,9 @@ function Bsignup() {
                 {/* If validation is not passed show errors */}
                 {/* Click on submit button to submit the form */}
                 <button type="submit">Sign Up</button>
-                <div><a href="contactus" id="bhelp">Need help?</a></div>
+                <div>
+                    <Link to="/help" id="bhelp">Need Help?</Link>
+                  </div>
               </form>
               <br></br> <div className="fck">Already have an account? <Link to="/LogIn" id="blogin">Sign In</Link></div>
             </div>

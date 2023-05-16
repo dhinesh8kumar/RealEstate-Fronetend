@@ -4,6 +4,7 @@ import { Formik } from "formik";
 import * as Yup from "yup";
 import Navbar from "../components/Newnavbar";
 import axios from 'axios';
+import { Link } from "react-router-dom";
 
 
 
@@ -176,7 +177,9 @@ function Complaint(){
                 </p>
                 
                 <button type="submit">Submit</button>
-                <div><a href="contactus" id="help">Need help?</a></div>
+                <div>
+                    <Link to="/help" id="help">Need Help?</Link>
+                  </div>
               </form>
             </div>
           </div>
