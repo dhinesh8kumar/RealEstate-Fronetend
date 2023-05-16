@@ -38,7 +38,7 @@ export default function Proverify() {
 
     const loadBuyer = async () => {
 
-        const response = await axios.get("http://localhost:9091/api/admin/property");
+        const response = await axios.get("https://realestate-backend-b20k.onrender.com/api/admin/property");
 
         setData(response.data);
 
@@ -97,7 +97,7 @@ export default function Proverify() {
 
                             const Accept = () => {
 
-                                axios.put(`http://localhost:9091/proaccept`, {
+                                axios.put(`https://realestate-backend-b20k.onrender.com/proaccept`, {
 
                                     verify: 1,
 
@@ -127,7 +127,7 @@ export default function Proverify() {
 
                             const Reject = () => {
 
-                                axios.put(`http://localhost:9091/proaccept`, {
+                                axios.put(`https://realestate-backend-b20k.onrender.com/proaccept`, {
 
                                     verify: 0,
 

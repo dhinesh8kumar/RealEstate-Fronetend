@@ -38,7 +38,7 @@ export default function Sverify() {
 
     const loadBuyer = async () => {
 
-        const response = await axios.get("http://localhost:9091/api/seller");
+        const response = await axios.get("https://realestate-backend-b20k.onrender.com/api/seller");
 
         setData(response.data);
 
@@ -94,7 +94,7 @@ export default function Sverify() {
 
                             const Accept = () => {
 
-                                axios.put(`http://localhost:9091/saccept`, {
+                                axios.put(`https://realestate-backend-b20k.onrender.com/saccept`, {
 
                                     verify: 1,
 
@@ -124,7 +124,7 @@ export default function Sverify() {
 
                             const Reject = () => {
 
-                                axios.put(`http://localhost:9091/saccept`, {
+                                axios.put(`https://realestate-backend-b20k.onrender.com/saccept`, {
 
                                     verify: 0,
 

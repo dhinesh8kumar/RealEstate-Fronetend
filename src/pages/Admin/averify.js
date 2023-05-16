@@ -38,7 +38,7 @@ export default function Averify() {
 
     const loadBuyer = async () => {
 
-        const response = await axios.get("http://localhost:9091/api/admin/attorney");
+        const response = await axios.get("https://realestate-backend-b20k.onrender.com/api/admin/attorney");
 
         setData(response.data);
 
@@ -98,7 +98,7 @@ export default function Averify() {
 
                             const Accept = () => {
 
-                                axios.put(`http://localhost:9091/aaccept`, {
+                                axios.put(`https://realestate-backend-b20k.onrender.com/aaccept`, {
 
                                     verify: 1,
 
@@ -128,7 +128,7 @@ export default function Averify() {
 
                             const Reject = () => {
 
-                                axios.put(`http://localhost:9091/aaccept`, {
+                                axios.put(`https://realestate-backend-b20k.onrender.com/aaccept`, {
 
                                     verify: 0,
 

@@ -22,7 +22,7 @@ export default function Admin(){
   }
   const [data,setData] = useState([]);
   const loadBuyer = async () => {
-    const response = await axios.get("http://localhost:9091/api/buyer");
+    const response = await axios.get("https://realestate-backend-b20k.onrender.com/api/buyer");
     setData(response.data);
   };
   useEffect(()=> {
@@ -49,7 +49,7 @@ export default function Admin(){
   <tbody>
     {data.map((item,index)=>{
       const Accept = () => {
-        axios.put(`http://localhost:9091/baccept`, {
+        axios.put(`https://realestate-backend-b20k.onrender.com/baccept`, {
           verify:1,
           id: item.id
         })
@@ -64,7 +64,7 @@ export default function Admin(){
         window.location.reload()
       };
       const Reject = () => {
-        axios.put(`http://localhost:9091/baccept`, {
+        axios.put(`https://realestate-backend-b20k.onrender.com/baccept`, {
           verify:0,
           id: item.id
         })

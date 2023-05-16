@@ -32,7 +32,7 @@ export default function Admin() {
 
     const loadBuyer = async () => {
 
-        const response = await axios.get("http://localhost:9091/api/payment");
+        const response = await axios.get("https://realestate-backend-b20k.onrender.com/api/payment");
 
         setData(response.data);
 

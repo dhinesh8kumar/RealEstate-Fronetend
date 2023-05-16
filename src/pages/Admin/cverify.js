@@ -32,7 +32,7 @@ export default function Cverify() {
 
     const loadBuyer = async () => {
 
-        const response = await axios.get("http://localhost:9091/api/complaint");
+        const response = await axios.get("https://realestate-backend-b20k.onrender.com/api/complaint");
 
         setData(response.data);
 
