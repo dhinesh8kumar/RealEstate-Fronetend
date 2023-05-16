@@ -1,23 +1,17 @@
-import { useEffect, useState } from 'react';
-import '../../styles/Body.css'
-import RestaurantCard from "../../components/Card"
-import NewNavbar from '../../components/Newnavbar';
+import { useEffect, useState } from "react";
+import "../../styles/Body.css";
+import RestaurantCard from "../../components/Card";
+import NewNavbar from "../../components/Newnavbar";
 import Footer from "../../components/Footer";
-import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
-
-
-
-
-
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const Body = () => {
   const navigate = useNavigate();
-  if(!localStorage.getItem('Name')){
-    navigate('/');
-  }
-  else if(localStorage.getItem('authToken')!= "buyer") {
-    navigate('/SDashboard/List');
+  if (!localStorage.getItem("Name")) {
+    navigate("/");
+  } else if (localStorage.getItem("authToken") != "buyer") {
+    navigate("/SDashboard/List");
   }
   const [data, setData] = useState([]);
   const [propertyList, setPropertyList] = useState(data);
@@ -26,8 +20,9 @@ const Body = () => {
   const [typeFilters, setTypeFilters] = useState([]);
 
   const loadProperty = async () => {
-    const response = await axios.get("https://realestate-backend-b20k.onrender.com/api/property");
-
+    const response = await axios.get(
+      "https://realestate-backend-b20k.onrender.com/api/property"
+    );
 
     setData(response.data);
     console.log(propertyList);
@@ -36,7 +31,6 @@ const Body = () => {
   useEffect(() => {
     loadProperty();
   }, []);
-
 
   const handlePriceFilterChange = (e) => {
     setPriceFilter(e.target.value);
@@ -55,51 +49,60 @@ const Body = () => {
     console.log("updating list");
     let filtered = [...data];
     if (searchText) {
-      console.log('updating searchtext')
+      console.log("updating searchtext");
       filtered = filtered.filter(
         (p) =>
-          p.address.includes(searchText) || p.title.includes(searchText)
+          p.Address.includes(searchText) || p.Property_Name.includes(searchText)
       );
     }
     if (priceFilter) {
-      console.log('updating price')
+      console.log("updating price");
       switch (priceFilter) {
         case "5-10":
-          filtered = filtered.filter((p) => p.price >= 5000 && p.price <= 10000);
+          filtered = filtered.filter(
+            (p) => p.Price >= 5000 && p.Price <= 10000
+          );
           break;
         case "10-20":
-          filtered = filtered.filter((p) => p.price > 10000 && p.price <= 20000);
+          filtered = filtered.filter(
+            (p) => p.Price > 10000 && p.Price <= 20000
+          );
           break;
         case "20-30":
-          filtered = filtered.filter((p) => p.price > 20000 && p.price <= 30000);
+          filtered = filtered.filter(
+            (p) => p.Price > 20000 && p.Price <= 30000
+          );
           break;
         case "30-50":
-          filtered = filtered.filter((p) => p.price > 30000 && p.price <= 50000);
+          filtered = filtered.filter(
+            (p) => p.Price > 30000 && p.Price <= 50000
+          );
           break;
         case "50-100":
-          filtered = filtered.filter((p) => p.price > 50000 && p.price <= 100000);
+          filtered = filtered.filter(
+            (p) => p.Price > 50000 && p.Price <= 100000
+          );
           break;
         case ">100":
-          filtered = filtered.filter((p) => p.price > 100000);
+          filtered = filtered.filter((p) => p.Price > 100000);
           break;
         default:
           break;
       }
     }
     if (typeFilters.length) {
-      console.log('updating type')
-      filtered = filtered.filter((p) => typeFilters.includes(p.purpose.toLowerCase()));
+      console.log("updating type");
+      filtered = filtered.filter((p) =>
+        typeFilters.includes(p.purpose.toLowerCase())
+      );
     }
     setPropertyList(filtered);
   }, [data, searchText, priceFilter, typeFilters]);
-
 
   return (
     <>
       <NewNavbar />
       <div className="body">
-
-
         <div className="filter-container">
           <div className="price-filter">
             <span>Price Range:</span>
@@ -122,7 +125,12 @@ const Body = () => {
                 setSearchText(e.target.value);
               }}
             />
-            <button className="search-btn" style={{ border: "1px solid black" }}>Search</button>
+            <button
+              className="search-btn"
+              style={{ border: "1px solid black" }}
+            >
+              Search
+            </button>
           </div>
           <div className="type-filter">
             <span>Type:</span>
@@ -162,31 +170,21 @@ const Body = () => {
               <RestaurantCard
                 src={p.Property_Image}
                 title={p.Property_Name}
-                area = {p.Area_Size}
+                area={p.Area_Size}
                 location={p.Address}
                 price={p.Price}
                 type={p.purpose}
                 seller_id={p.Seller_id}
-
                 description={p.Descrp}
-
                 property_id={p.id}
-
-
               />
             ))}
           </div>
         </div>
-
-
-
       </div>
       <Footer />
     </>
   );
 };
-
-
-
 
 export default Body;
