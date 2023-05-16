@@ -65,7 +65,7 @@ function Complaint(){
             <div className="form">
               {/* Passing handleSubmit parameter tohtml form onSubmit property */}
               <form noValidate onSubmit={handleSubmit}>
-                <div id="head"> Compaint Form</div>
+                <div id="head"> Complaint Form</div>
                 <div id="cap">Philippines Real Estate - Raise your request</div>
                 {/* Our input html with passing formik parameters like handleChange, values, handleBlur to input properties */}
                 <input
@@ -175,7 +175,7 @@ function Complaint(){
                   {errors.descrp && touched.descrp && errors.descrp}
                 </p>
                 
-                <button type="submit">Sign Up</button>
+                <button type="submit">Submit</button>
                 <div><a href="contactus" id="help">Need help?</a></div>
               </form>
             </div>
