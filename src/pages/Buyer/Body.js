@@ -177,6 +177,7 @@ const Body = () => {
                 seller_id={p.Seller_id}
                 description={p.Descrp}
                 property_id={p.id}
+                Contact_Number={p.Contact_Number}
               />
             ))}
           </div>
