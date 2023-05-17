@@ -121,7 +121,7 @@ export default function List() {
                       variant="outlined"
                       startIcon={<DeleteIcon />}
                     >
-                      INACTIVE
+                      DELETE
                     </Button>
                   </td>
                 </tr>
