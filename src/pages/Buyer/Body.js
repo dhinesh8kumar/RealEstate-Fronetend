@@ -146,17 +146,17 @@ const Body = () => {
             <label>
               <input
                 type="checkbox"
-                value="rent"
-                checked={typeFilters.includes("rent")}
+                value="lease"
+                checked={typeFilters.includes("lease")}
                 onChange={handleTypeFilterChange}
               />
-              Rent
+              Lease
             </label>
             <label>
               <input
                 type="checkbox"
-                value="CD"
-                checked={typeFilters.includes("CD")}
+                value="cd"
+                checked={typeFilters.includes("cd")}
                 onChange={handleTypeFilterChange}
               />
               CD
